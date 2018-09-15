@@ -11,5 +11,5 @@ AddressBook.prototype.getContact = function(index) {
 }
 
 AddressBook.prototype.deleteContact = function(index) {
-	this.contacts.splice(index,1);
+	this.contacts.splice(index, 1);
 }

@@ -1,6 +1,6 @@
-describe('Address Book', function(){
+describe('Address Book', function() {
 	var addressBook;
-		thisContact;
+	var	thisContact;
 
 	beforeEach(function() {
 		addressBook = new AddressBook();
@@ -23,10 +23,16 @@ describe('Address Book', function(){
 
 
 describe('Async Address Book', function() {
-	it('should grab inital contacts', function() {
-		var addressBook = new AddressBook();
+	var addressBook = new AddressBook();
 
-		addressBook.getInitialContacts();
-		expect(addressBook.initialComplete).toBe(true)
+	beforeEach(function(done) {
+		addressBook.getInitialContacts(function() {
+			done();
+		});
+	});
+
+	it('should grab inital contacts', function(done) {
+		expect(addressBook.initialComplete).toBe(true);
+		done();
 	});
 });
